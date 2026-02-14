@@ -1,0 +1,12 @@
+[workspace]
+channels = ["conda-forge"]
+name = "fourier_transform_studies"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+numpy = ">=2.4.2,<3"
+scipy = ">=1.17.0,<2"
+plotly = ">=6.5.2,<7"
