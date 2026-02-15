@@ -5,7 +5,7 @@ from scipy import signal, fft
 
 freq_hz_1 = 50
 freq_hz_2 = 1000
-time_s = np.linspace(0, 0.1, 10000)
+time_s = np.linspace(0, 0.1, 100000)
 
 waveform_1 = (signal.square(2 * np.pi * freq_hz_1 * time_s, duty=0.5)+1)/2
 waveform_2 = (signal.square(2 * np.pi * freq_hz_2 * time_s, duty=0.5)+1)/2
@@ -30,4 +30,5 @@ fig.add_trace(go.Scatter(x=time_s, y=waveform_3, mode='lines', name='Combined Wa
 fourier_transform_3 = fft.fft(waveform_3)
 fig.add_trace(go.Scatter(x=np.fft.fftfreq(len(waveform_3), d=(time_s[1] - time_s[0])), y=np.abs(fourier_transform_3), mode='lines', name='Fourier Transform of Combined Waveform'), row=1, col=2)
 fig.update_layout(title_text="Combined Square Waveform and Its Fourier Transform", showlegend=False)
+fig.update_xaxes(range=[10, 2000], row=1, col=2)
 fig.show()
